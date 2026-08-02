@@ -28,19 +28,17 @@ export default function SobreMiPage() {
         </p>
         <p>
           Además, desarrollo páginas web modernas, rápidas y totalmente
-          responsive para empresas, profesionales y pequeños negocios,
-          utilizando tecnologías como React, Next.js y TypeScript.
+          responsive utilizando tecnologías como React, Next.js y TypeScript.
+        </p>
+        <p>
+          En mi trabajo utilizo herramientas de inteligencia artificial para
+          agilizar tareas de desarrollo, documentación y revisión técnica,
+          manteniendo siempre el control y la validación del código antes de
+          incorporarlo a un proyecto.
         </p>
         <p>
           Me gusta crear software útil, con un código limpio, mantenible y
-          orientado al rendimiento. Entre mis proyectos destaca Diagramas
-          Odoo, una aplicación de escritorio desarrollada para facilitar el
-          diseño y desarrollo de módulos de Odoo.
-        </p>
-        <p>
-          Mi objetivo es ayudar a empresas y profesionales a digitalizar sus
-          procesos y ofrecer soluciones fiables que aporten valor desde el
-          primer día.
+          orientado al rendimiento.
         </p>
       </div>
 
