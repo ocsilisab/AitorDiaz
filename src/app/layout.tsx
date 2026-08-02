@@ -16,17 +16,34 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: `${siteConfig.name} — ${siteConfig.tagline}`,
     template: `%s — ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  openGraph: {
+    type: "website",
+    locale: "es_ES",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: siteConfig.description,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: siteConfig.description,
+    images: ["/opengraph-image"],
+  },
 };
 
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: siteConfig.name,
+  url: siteConfig.url,
   jobTitle: siteConfig.tagline,
   description: siteConfig.description,
   email: `mailto:${siteConfig.email}`,

@@ -5,6 +5,9 @@ import { sendContactMessage, type ContactState } from "@/app/contacto/actions";
 
 const initialState: ContactState = { status: "idle" };
 
+// Desactiva temporalmente el formulario sin quitarlo del código.
+const ACCEPTING_NEW_WORK = false;
+
 const inputClasses =
   "rounded-md border border-black/[.08] dark:border-white/[.145] bg-transparent px-3 py-2 text-black dark:text-zinc-50 outline-none focus:border-primary dark:focus:border-primary";
 
@@ -15,7 +18,17 @@ export default function ContactForm() {
   );
 
   return (
-    <form action={formAction} className="flex max-w-md flex-col gap-4">
+    <div className="flex max-w-md flex-col gap-4">
+      {!ACCEPTING_NEW_WORK && (
+        <p className="rounded-md border border-accent/30 bg-accent/10 px-4 py-3 text-sm font-medium text-accent">
+          En estos momentos no estamos atendiendo nuevos trabajos.
+        </p>
+      )}
+
+      <form
+        action={formAction}
+        className={ACCEPTING_NEW_WORK ? "flex flex-col gap-4" : "hidden"}
+      >
       <input
         type="text"
         name="company"
@@ -60,7 +73,7 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        disabled={isPending}
+        disabled={isPending || !ACCEPTING_NEW_WORK}
         className="flex h-12 w-fit items-center justify-center rounded-full bg-primary px-6 text-base font-medium text-white transition-colors hover:bg-primary-strong disabled:opacity-60"
       >
         {isPending ? "Enviando…" : "Enviar mensaje"}
@@ -74,6 +87,7 @@ export default function ContactForm() {
       {state.status === "error" && (
         <p className="text-sm font-medium text-accent">{state.message}</p>
       )}
-    </form>
+      </form>
+    </div>
   );
 }
