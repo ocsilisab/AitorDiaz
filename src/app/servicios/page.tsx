@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ProcessTimeline from "@/components/ProcessTimeline";
+import FaqAccordion from "@/components/FaqAccordion";
 
 export const metadata: Metadata = {
   title: "Servicios",
@@ -64,6 +66,33 @@ export default function ServiciosPage() {
             </ul>
           </div>
         ))}
+      </div>
+
+      <div className="flex flex-col gap-6 border-t-2 border-primary/20 pt-8">
+        <div className="flex flex-col gap-2">
+          <h2 className="text-xl font-semibold text-primary-strong dark:text-primary">
+            ¿Cómo trabajo?
+          </h2>
+          <p className="max-w-lg text-zinc-600 dark:text-zinc-400">
+            Un proceso claro y transparente para que sepas qué esperar en
+            cada etapa del proyecto.
+          </p>
+        </div>
+
+        <ProcessTimeline />
+
+        <p className="text-sm text-zinc-500 dark:text-zinc-500">
+          No realizo mantenimiento mensual. Si en el futuro necesitas nuevas
+          funcionalidades o modificaciones, podrán presupuestarse como un
+          nuevo proyecto.
+        </p>
+      </div>
+
+      <div className="flex flex-col gap-6 border-t-2 border-primary/20 pt-8">
+        <h2 className="text-xl font-semibold text-primary-strong dark:text-primary">
+          Preguntas frecuentes
+        </h2>
+        <FaqAccordion />
       </div>
 
       <Link
